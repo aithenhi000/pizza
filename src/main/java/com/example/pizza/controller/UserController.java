@@ -1,5 +1,6 @@
 package com.example.pizza.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.pizza.entity.User;
@@ -20,7 +22,7 @@ import jakarta.validation.Valid;
 public class UserController {
     @Autowired
     private UserService userService;
-
+    
     @GetMapping("/login")
     public String login(Model model) {
         model.addAttribute("user", new User()); // Tạo mới đối tượng User và đưa vào model
@@ -78,4 +80,5 @@ public class UserController {
 
         return "redirect:/login?registered";
     }
+    
 }
